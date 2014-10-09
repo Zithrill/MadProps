@@ -13,8 +13,7 @@ module.exports = function(config) {
       'bower_components/angular-socket-io/socket.js',
       'bower_components/angular-socket-io/mock/socket-io.js',
       'bower_components/angular-mocks/angular-mocks.js',
-      'client/d3Angular.js',
-      'client/app.js',
+      'client/app.js', // Load the main angular module before its dependencies.
       'client/*.js',
       'client/drone_control/*.js'
     ],
@@ -41,9 +40,9 @@ module.exports = function(config) {
       'client/drone_control/!(*spec).js': 'coverage'
      },
     coverageReporter: {
-      type: 'lcov',
-      dir: 'coverage',
-      subdir: '.' // Output the results into ./coverage/
+      type: 'json',
+      dir: 'coverage/client',
+      subdir: '.' // stops formation of PhantomJS folder
     }
   });
 };
